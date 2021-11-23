@@ -1,20 +1,91 @@
-﻿// Lab9B.cpp : Этот файл содержит функцию "main". Здесь начинается и заканчивается выполнение программы.
-//
-
-#include <iostream>
+﻿#include <iostream>
+#include <windows.h>
+using namespace std;
+#include<iomanip>
+#define M 5
 
 int main()
+
 {
-    std::cout << "Hello World!\n";
+	SetConsoleCP(1251);
+	SetConsoleOutputCP(1251);
+	int razmerstr = 0;
+	int razmerstolb = 0;
+	int arr[M][M];
+	int mas[M][M];
+	cout << "Введите количество строк матрицы 1" << endl;
+	cin >> razmerstr;
+	cout << "Введите количество столбцов матрицы 1" << endl;
+	cin >> razmerstolb;
+	int sizerow = 0;
+	int sizecol = 0;
+	cout << "Введите количество строк матрицы 2" << endl;
+	cin >> sizerow;
+	cout << "Введите количество столбцов матрицы 2" << endl;
+	cin >> sizecol;
+
+	while (razmerstr != sizecol or razmerstolb != sizerow) {
+		cout << "Такое перемножение матриц невозможно" << endl << "Попытайтесь еще" << endl;
+		cout << "Введите количество строк матрицы 1" << endl;
+		cin >> razmerstr;
+		cout << "Введите количество столбцов матрицы 1" << endl;
+		cin >> razmerstolb;
+		cout << "Введите количество строк матрицы 2" << endl;
+		cin >> sizerow;
+		cout << "Введите количество столбцов матрицы 2" << endl;
+		cin >> sizecol;
+	}
+	cout << "Ваши матрицы:" << endl;
+	for (int i = 0; i < razmerstr; i++)
+	{
+		for (int j = 0; j < razmerstolb; j++)
+		{
+
+
+			arr[i][j] = rand() % 15;
+			cout << setw(4) << arr[i][j];
+		}
+		cout << endl;
+	}
+	cout << "\n\n";
+	for (int i = 0; i < sizerow; i++)
+	{
+		for (int j = 0; j < sizecol; j++)
+		{
+			mas[i][j] = rand() % 15;
+			cout << setw(4) << mas[i][j];
+		}
+		cout << endl;
+	}
+	cout << "\n\n";
+	int proizv = 0;
+	int sum = 0;
+	int umn = 0;
+	int sloz = 0;
+	int mass[M][M];
+	if (razmerstr == sizecol or razmerstolb == sizerow) {
+		for (int k = 0; k < razmerstr; k++)
+			for (int i = 0; i < razmerstr; i++)
+			{
+				sum = 0;
+				for (int j = 0; j < sizerow;j++) {
+
+					proizv = arr[k][j] * mas[j][i];
+					sum += proizv;
+					mass[k][i] = sum;
+					cout << "Результат перемножения:" << proizv << endl;
+					cout << "Результат сложения:" << sum << endl;
+
+				}
+			}
+	}
+	cout << "Ваши перемноженные матрицы:" << endl;
+	for (int k = 0; k < razmerstr; k++)
+	{
+		for (int i = 0; i < sizecol; i++)
+		{
+			cout << setw(4) << mass[k][i];
+		}
+		cout << endl;
+	}
 }
-
-// Запуск программы: CTRL+F5 или меню "Отладка" > "Запуск без отладки"
-// Отладка программы: F5 или меню "Отладка" > "Запустить отладку"
-
-// Советы по началу работы 
-//   1. В окне обозревателя решений можно добавлять файлы и управлять ими.
-//   2. В окне Team Explorer можно подключиться к системе управления версиями.
-//   3. В окне "Выходные данные" можно просматривать выходные данные сборки и другие сообщения.
-//   4. В окне "Список ошибок" можно просматривать ошибки.
-//   5. Последовательно выберите пункты меню "Проект" > "Добавить новый элемент", чтобы создать файлы кода, или "Проект" > "Добавить существующий элемент", чтобы добавить в проект существующие файлы кода.
-//   6. Чтобы снова открыть этот проект позже, выберите пункты меню "Файл" > "Открыть" > "Проект" и выберите SLN-файл.
