@@ -2,11 +2,35 @@
 //
 
 #include <iostream>
+#include <math.h>
+#include <windows.h>
+#pragma warning(disable : 4996)
 
-int main()
-{
-    std::cout << "Hello World!\n";
+int main(void) {
+    SetConsoleCP(1251);
+    SetConsoleOutputCP(1251);
+
+    double x, y;
+    double a = 2, b = 3, c = 4;
+    double t1, t2;
+    double ax;
+
+    printf("Введите x, y > \n");
+    scanf("%lf %lf", &x, &y);
+    ax = a * x;
+    /* if ( (ax + b) != 0 && a != 0 && tan(ax/2) >= 0 && cos(x * 3.14 / 180) != 0) */
+    t1 = (c + y * log((x * y + a) / (ax + b)) * (ax + b)) / (pow(c, 2) * (ax + b));
+    t2 = (sin(ax * 3.14 / 180) / (2 * a * pow(cos(x * 3.14 / 180), 2)) + 1 / (2 * a) * log(tan((a * x) / 2) * 3.14 / 180));
+    printf("t1 = %lg\n", t1);
+    printf("t2 = %lg\n", t2);
+    /*}
+    else {
+        printf("Введите нормальные значения");
+        }*/
+
+    return 0;
 }
+
 
 // Запуск программы: CTRL+F5 или меню "Отладка" > "Запуск без отладки"
 // Отладка программы: F5 или меню "Отладка" > "Запустить отладку"
