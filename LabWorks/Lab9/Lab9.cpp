@@ -2,10 +2,55 @@
 //
 
 #include <iostream>
+#include <windows.h>
+#include<iomanip>
+using namespace std;
+#define N 9
 
 int main()
 {
-    std::cout << "Hello World!\n";
+	int arr[N][N];
+	int prib = 1;
+
+	for (int razn = 0; razn < N - 2; razn++)
+	{
+
+		for (int i = 0 + razn; i < N - razn; i++)
+		{
+			arr[0 + razn][i] = prib;
+			prib++;
+		}
+		prib--;
+		for (int i = 0 + razn; i < N - razn; i++)
+		{
+
+			arr[i][N - 1 - razn] = prib;
+			prib++;
+		}
+		prib--;
+		for (int i = N - 1 - razn; i >= 0 + razn;i--)
+		{
+
+			arr[N - 1 - razn][i] = prib;
+			prib++;
+		}
+		for (int i = N - 1 - razn; i >= 1 + razn; i--)
+		{
+
+			arr[i][0 + razn] = prib;
+			prib++;
+		}
+
+	}
+
+	for (int i = 0; i < N; i++)
+	{
+		for (int j = 0;j < N;j++) {
+			cout << setw(5) << arr[i][j];
+		}
+		cout << endl;
+	}
+	return 0;
 }
 
 // Запуск программы: CTRL+F5 или меню "Отладка" > "Запуск без отладки"
