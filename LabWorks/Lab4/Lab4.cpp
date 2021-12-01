@@ -2,12 +2,49 @@
 //
 
 #include <iostream>
+#include <stdio.h>
+#pragma warning (disable: 4996)
+#include <windows.h>
 
 int main()
 {
-    std::cout << "Hello World!\n";
-}
+    SetConsoleCP(1251);
+    SetConsoleOutputCP(1251);
 
+    short n; /* номер канала */
+    short e; /* признак ошибки */
+    short c; /* код причины прерывания */
+    short p; /* признак завершения программы в канале */
+    unsigned short UnitStateWord; /* слово состояния */
+
+    printf("Введите номер канала (0 / 15) >");
+    scanf("%hd", &n);
+    printf("Введите признак ошибки (0 / 1) >");
+    scanf("%hd", &e);
+    printf("Введите код причины прерывания (0 - 511) >");
+    scanf("%hd", &c);
+    printf("Введите признак завершения программы в канале(0 - 1) >");
+    scanf("%hd", &p);
+    /* формирование упакованного кода */
+    UnitStateWord = ((unsigned short)n & 0xF) << 12;
+    UnitStateWord |= ((unsigned short)e & 1) << 11;
+    UnitStateWord |= ((unsigned short)c & 0x1FF) << 2;
+    UnitStateWord |= ((unsigned short)p & 1);
+    /* вывод результата */
+    printf("\nСлово состояния устройства = %04x\n",
+        UnitStateWord);
+    printf("Введите cлово состояния устройства \n");
+    printf("(16-ричное число от 0 до 0xFFFD) >");
+    scanf("%hd", &UnitStateWord);
+    n = (UnitStateWord >> 12) & 0xF;
+    e = (UnitStateWord >> 11) & 1;
+    c = (UnitStateWord >> 2) & 0x1FF;
+    p = UnitStateWord & 1;
+    printf("Номер канала = %d\n", n);
+    printf("Признак ошибки = %d\n", e);
+    printf("Код причины прерывания = %d\n", c);
+    printf("Признак завершения программы в канале = %d\n", p);
+    return 0;
 // Запуск программы: CTRL+F5 или меню "Отладка" > "Запуск без отладки"
 // Отладка программы: F5 или меню "Отладка" > "Запустить отладку"
 
