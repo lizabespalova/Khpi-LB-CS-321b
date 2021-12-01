@@ -2,12 +2,42 @@
 //
 
 #include <iostream>
+#include <math.h>
+#include <windows.h>
+#pragma warning(disable : 4996)
 
-int main()
-{
-    std::cout << "Hello World!\n";
+int main(void) {
+    SetConsoleCP(1251);
+    SetConsoleOutputCP(1251);
+    int k;
+    while (1)
+    {
+        printf("Введите количество грибов = ");
+        scanf("%d", &k);
+
+
+        if ((k % 100 >= 11) && (19 >= k % 100))
+            printf("У меня"" %d ""грибов\n", k);
+        else
+            if ((k % 10 >= 5) && (9 >= k % 10))
+                printf("У меня"" %d ""грибов\n", k);
+            else
+                if ((k % 10 >= 2) && (4 >= k % 10))
+                    printf("У меня"" %d ""грибa\n", k);
+                else
+                    if (k % 10 == 0)
+                        printf("У меня"" %d ""грибов\n", k);
+                    else
+                        if (k % 10 == 1)
+                            printf("У меня"" %d ""гриб\n", k);
+
+                        else
+                            printf("У меня"" %d ""грибов\n", k);
+
+    }
+
+    return 0;
 }
-
 // Запуск программы: CTRL+F5 или меню "Отладка" > "Запуск без отладки"
 // Отладка программы: F5 или меню "Отладка" > "Запустить отладку"
 
