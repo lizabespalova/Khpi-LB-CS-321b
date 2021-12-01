@@ -26,27 +26,24 @@ int funct2(int arr[M][M],int) {
 	return arr[M][M];
 }
 
-int func2(int arr[M][M], int, int polozchisl) {
-	int a;
-	int polozchisl=0;
+int func2(int arr[M][M],int numberofline) {
+	int a=numberofline;
+	int sum = 0;
 	int mas[M];
-	cout << "\nВведите номер строки, где будем искать положительные числа(от 0 до 4):\n" << endl;
-	cin >> a;
-	cout << "Ваша выбранная строка : " <<endl;
-	    for (int i =0;i<M ;i++) {
-			for (int j = 0;j < M;j++)
-				mas[i] = arr[a][i];
-			cout << mas[i] << " ";
+	cout << "Ваши строки:"<<endl;
+	for (int i = 0;i < M;i++) {
+		
+		for (int j = 0;j < M;j++)
+			mas[i] = arr[a][i];
+		cout << mas[i] << " ";
 	}
-		for (int i = 0; i < M; i++)
-		{
-			if (mas[i] >=0) {
-				polozchisl = mas[i];
-				return polozchisl;
+		for (int i = 0; i < M; i++)		
+			if (mas[i] > 0) {
+				sum++;
 			}
-		}
+		return sum;
 }
-int main(int polozchisl, int mas[M])
+int main()
 
 {
 	SetConsoleCP(1251);
@@ -54,14 +51,11 @@ int main(int polozchisl, int mas[M])
 	int arr[M][M];
 	function1(arr, M);
 	funct2(arr, M);
-	func2(arr, M);
-	cout << "\n";
-	cout << "Ваши положительные числа:" << endl;
+	/*func2(arr, M,  sum);*/
 	for (int i = 0; i < M; i++)
 	{
-		cout << func2(polozchisl) << " ";
+		cout << "\nВаши положительные числа:\n" << func2(arr, i) << endl;
 	}
-	
 }
 // Запуск программы: CTRL+F5 или меню "Отладка" > "Запуск без отладки"
 // Отладка программы: F5 или меню "Отладка" > "Запустить отладку"

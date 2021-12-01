@@ -8,7 +8,7 @@ using namespace std;
 #define M 3
 
 
-    int * Dvummatrix(int arr[], int)
+    void Dvummatrix(int arr[], int)
 {
 	int mass[M][M];
 	int ar[M][M];
@@ -85,9 +85,9 @@ using namespace std;
 
 		}
 	}
-	return arr;
+	
 }
-	int main(int ar)
+	int main()
 
 {
 	SetConsoleCP(1251);
