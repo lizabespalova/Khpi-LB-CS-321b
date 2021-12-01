@@ -2,12 +2,32 @@
 //
 
 #include <iostream>
-
+#include <stdio.h>
+#pragma warning (disable : 4996)
+#include <windows.h>
 int main()
 {
-    std::cout << "Hello World!\n";
-}
+    SetConsoleCP(1251);
+    SetConsoleOutputCP(1251);
+    double x, y;
+    printf("Введите координату x >");
+    scanf("%lf", &x);
+    printf("Введите координату y >");
+    scanf("%lf", &y);
+    printf("x=%6.3lf;  y=%6.3lf\n", x, y);
 
+    if ((x * x + y * y <= 1) && (y <= 1) && (-1 <= x) && (-1 <= y) && (x <= 0) || (x <= 1) && (x >= 0) && (y >= -1) && (y <= 1))
+        printf("Точка попадает в область\n");
+    else printf("Точка не попадает в область\n");
+
+    /* if ((pow(x, 2)  + pow(y, 2)  <=1 ))
+         printf("Точка попадает в область\n");
+     else
+          printf("Точка не попадает в область\n");*/
+    return 0;
+
+
+}
 // Запуск программы: CTRL+F5 или меню "Отладка" > "Запуск без отладки"
 // Отладка программы: F5 или меню "Отладка" > "Запустить отладку"
 
