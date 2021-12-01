@@ -2,12 +2,47 @@
 //
 
 #include <iostream>
+#include <math.h>
+#include <cmath>
+#pragma warning (disable:4996)
+#include <windows.h>
 
 int main()
 {
-    std::cout << "Hello World!\n";
-}
+    SetConsoleCP(1251);
+    SetConsoleOutputCP(1251);
+    double a;
+    double b;
+    double c;
+    double d;
+    double l;
+    double k;
+    printf("Введите a");
+    scanf("%lf", &a);
+    printf("Введите b");
+    scanf("%lf", &b);
+    printf("Введите c");
+    scanf("%lf", &c);
+    d = b * b - 4 * a * c;
+    if (d > 0)
+    {
+        l = ((-b) + sqrt(d)) / (2 * a);
+        k = ((-b) - sqrt(d)) / (2 * a);
+        printf("l=%lf\n", l);
+        printf("k=%lf\n", k);
+    }
+    if (d == 0)
+    {
+        l = (-b / (2 * a));
+        printf("l=%lf\n", l);
+    }
+    if (d < 0)
+        printf("Корней нет");
 
+
+
+    return 0;
+}
 // Запуск программы: CTRL+F5 или меню "Отладка" > "Запуск без отладки"
 // Отладка программы: F5 или меню "Отладка" > "Запустить отладку"
 
