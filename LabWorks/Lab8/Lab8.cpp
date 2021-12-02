@@ -2,12 +2,59 @@
 //
 
 #include <iostream>
+#include <math.h>
+#include <windows.h>
+#include <ctime>
+#include <stdlib.h>
+using namespace std;
+
+
 
 int main()
 {
-    std::cout << "Hello World!\n";
-}
+    SetConsoleCP(1251);
+    SetConsoleOutputCP(1251);
+    int arr[200];
+    /*int arr[] = {8,9,7,14,15,3,7,8,9};*/
+    int length = 200;
+    int count = 0;
+    /* bool haveasub = false;*/ //Последовательность
+    srand(time(0));
+    for (int i = 0; i < length; i++)
+    {
+        arr[i] = rand() % 101;
+        printf("%3d ", arr[i]);
+    }
+    cout << endl;
 
+    for (int i = 1; i < length; i++)
+    {
+        if (arr[i] == arr[i - 1] + 1)
+            /*{
+                if (!haveasub)
+                {
+                    haveasub = true;
+                }
+            }
+            else
+            {
+                if (haveasub)
+                {*/
+            count++;
+        /* haveasub = false;
+     }
+
+ }
+
+}
+if (haveasub)
+{
+    count++;
+}*/
+    }
+    printf("%d Количество последовательностей", count);
+    return 0;
+}
 // Запуск программы: CTRL+F5 или меню "Отладка" > "Запуск без отладки"
 // Отладка программы: F5 или меню "Отладка" > "Запустить отладку"
 
