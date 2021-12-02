@@ -2,10 +2,37 @@
 //
 
 #include <iostream>
+#include <windows.h>
+
+using namespace std;
 
 int main()
 {
-    std::cout << "Hello World!\n";
+	SetConsoleCP(1251);
+	SetConsoleOutputCP(1251);
+	srand(time(0));
+	int answ;
+	int counttrue = 0; //Количество правильных
+	for (int i = 0; i < 10; i++)
+	{
+		int a = rand() % 10 + 1;
+		int b = rand() % 10 + 1;
+		int c = a * b;
+		cout << a << "*" << b << "=" << endl;
+		cin >> answ;
+		if (answ == c)
+		{
+			counttrue++;
+		}
+		else if (answ != c);
+		{
+			counttrue = counttrue + 0;
+		}
+	}
+
+	cout << "Количество правильных ответов" << endl << counttrue << endl << "Ваша оценка" << endl << counttrue << endl;
+
+	return 0;
 }
 
 // Запуск программы: CTRL+F5 или меню "Отладка" > "Запуск без отладки"
