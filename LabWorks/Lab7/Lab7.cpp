@@ -2,10 +2,46 @@
 //
 
 #include <iostream>
+#include <stdio.h>
+#include <math.h>
+#include <windows.h>
+#pragma warning (disable : 4996)
 
-int main()
-{
-    std::cout << "Hello World!\n";
+int main() {
+	SetConsoleCP(1251);
+	SetConsoleOutputCP(1251);
+	short a;
+	double x, y;
+	short b;
+	for (a = 0; a < 5;a++)
+	{
+		printf("|  x  |     y    |\n");
+		printf("|-----|----------|\n");
+		for (x = 0; x <= 8; x += 0.25) {
+
+			if (x <= 2)
+				y = 1 + (0 - pow(x - 1, 2));
+
+			else if (x <= 4)
+				y = 1 + (0 - pow(x - 3, 2));
+
+			else if (x <= 6)
+				y = -1 - (0 - pow(x - 5, 2));
+
+			else if (x <= 8)
+				y = -1 - (0 - pow(x - 7, 2));
+
+
+			printf("|%5.2lf|%10.7lf|", x + a * 8, y);
+			b = ((y + 1) * 10);
+			//if ((y - 1) * 10 * b > 0)b++;
+			for (; b > -2;b--) printf(" ");
+			printf("*\n");
+		}
+		printf("Нажмите клавишу enter...\n");
+		getchar();
+	}
+	return 0;
 }
 
 // Запуск программы: CTRL+F5 или меню "Отладка" > "Запуск без отладки"
