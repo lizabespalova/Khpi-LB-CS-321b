@@ -4,45 +4,46 @@
 #include<stdlib.h>
 #include<conio.h>
 #include<iostream>
-
+#include<windows.h>
+#include<chrono>
+#define N 45
 using namespace std;
 
-//главный функция(метод) программы в котором реализован метод гномьей сортировки
+//гномья сортировка
 int main() {
-    const int N = 10;
+    auto start = std::chrono::high_resolution_clock::now();
+    SetConsoleCP(1251);
+    SetConsoleOutputCP(1251);
     int A[N], i, tmp;
-    //randomize();
 
     for (i = 0;i < N;i++) {
         A[i] = rand() % 10;
         cout << A[i] << " ";
     }
     cout << endl;
-    //алгоритм гномьей сортировки
     i = 0;
     while (i < N) {
         if (i == 0 || A[i - 1] <= A[i])
-            ++i;
+            i++;
         else {
             tmp = A[i];
             A[i] = A[i - 1];
             A[i - 1] = tmp;
-            --i;
+            i--;
         }
-        // конец иттерации
-        cout << '#';
-        cout.width(2);
-        cout << i << "# ";
+       /* cout<<"Описание действия:"<<endl;
 
         for (int i = 0;i < N;i++)
             cout << A[i] << " ";
-        cout << endl;
+        cout << endl;*/
     }
-
+    cout << "Конечный результат:" << endl;
     for (i = 0;i < N;i++)
         cout << A[i] << " ";
     cout << endl;
-
+    auto end = std::chrono::high_resolution_clock::now();
+    chrono::duration<float>duration = end - start;
+    cout << "Продолжительность выполнения программы:" << duration.count() << endl;
     return 0;
 }
 

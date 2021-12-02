@@ -1,61 +1,70 @@
 ﻿// Lab 10B.cpp : Этот файл содержит функцию "main". Здесь начинается и заканчивается выполнение программы.
 //
 #include <iostream>
+#include <iomanip>
+#include <time.h>
 #include <windows.h>
 using namespace std;
-#include<iomanip>
-#define M 5
-int function1(int arr[M][M], int) {
-	for (int i = 0; i < M; i++)
-	{
-		for (int j = 0; j < M;j++) {
-			arr[i][j] = rand() % 10 -3;
+#define M 100
 
+
+int array_print(int arr[M][M], int razm_str, int razm_stol) {
+
+    for (int i = 0; i < razm_str; i++) {
+        for (int j = 0; j < razm_stol; j++) {
+            arr[i][j] = rand() % 10 - 5;
+            cout << setw(3) << arr[i][j];
         }
-	}
-	return arr[M][M];
-}
-int funct2(int arr[M][M],int) {
-	for (int i = 0; i < M; i++)
-	{
-		for (int j = 0; j < M;j++) {
-			cout << setw(4) << arr[i][j];
-		}
-		cout << endl;
-	}
-	return arr[M][M];
+        cout << endl;
+    }
+    return 0;
 }
 
-int func2(int arr[M][M],int numberofline) {
-	int a=numberofline;
-	int sum = 0;
-	int mas[M];
-	cout << "Ваши строки:"<<endl;
-	for (int i = 0;i < M;i++) {
-		
-		for (int j = 0;j < M;j++)
-			mas[i] = arr[a][i];
-		cout << mas[i] << " ";
-	}
-		for (int i = 0; i < M; i++)		
-			if (mas[i] > 0) {
-				sum++;
-			}
-		return sum;
+int positive(int arr[M][M], int vibor, int razm_stol) {
+    int sum = 0;
+    cout << "Позитивные числа:" << endl;
+    for (int j = 0; j < razm_stol; j++) {
+
+        if (arr[vibor - 1][j] >= 0) {
+            cout << setw(3) << arr[vibor - 1][j];
+            sum++;
+        }
+    } cout << endl;
+    return sum;
 }
+
 int main()
-
 {
-	SetConsoleCP(1251);
-	SetConsoleOutputCP(1251);
-	int arr[M][M];
-	function1(arr, M);
-	funct2(arr, M);
-	/*func2(arr, M,  sum);*/
-	for (int i = 0; i < M; i++)
-	{
-		cout << "\nВаши положительные числа:\n" << func2(arr, i) << endl;
-	}
+    srand(time(NULL));
+    SetConsoleCP(1251);
+    SetConsoleOutputCP(1251);
+    // 2D array 
+    int matrix[M][M];
+    cout << "Создадим двумерный массив:" << endl;
+    int razm_str, razm_stol;
+    cout << "Введите количество строк в нем ";
+    cin >> razm_str;
+    cout << "Введите количество столбцов в нем ";
+    cin >> razm_stol;
+
+   
+    array_print(matrix, razm_str, razm_stol);
+
+    while (true) {
+        
+        int vibor;
+        cout << "Выберите строку, в которой будем искать положительные числа ";
+        cin >> vibor;
+
+
+        if (vibor > 0 && vibor <= razm_str) {
+            cout << "Количество позитивных чисел: " << positive(matrix, vibor, razm_str) << endl;
+        }
+        else
+            cout << "Этой строки не существует" << endl;
+    }
+
+    return 0;
 }
 // Запуск программы: CTRL+F5 или меню "Отладка" > "Запуск без отладки"
 // Отладка программы: F5 или меню "Отладка" > "Запустить отладку"
