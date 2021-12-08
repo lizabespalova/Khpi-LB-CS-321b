@@ -5,6 +5,8 @@ VisualStudioVersion = 16.0.31624.102
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "RGZ", "RGZ.vcxproj", "{132394B7-7F58-4E76-B07A-FB8439F99252}"
 EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Choara", "..\Choara\Choara.vcxproj", "{681BA77E-CC7E-4A92-BB33-8E978850D564}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|x64 = Debug|x64
@@ -21,6 +23,14 @@ Global
 		{132394B7-7F58-4E76-B07A-FB8439F99252}.Release|x64.Build.0 = Release|x64
 		{132394B7-7F58-4E76-B07A-FB8439F99252}.Release|x86.ActiveCfg = Release|Win32
 		{132394B7-7F58-4E76-B07A-FB8439F99252}.Release|x86.Build.0 = Release|Win32
+		{681BA77E-CC7E-4A92-BB33-8E978850D564}.Debug|x64.ActiveCfg = Debug|x64
+		{681BA77E-CC7E-4A92-BB33-8E978850D564}.Debug|x64.Build.0 = Debug|x64
+		{681BA77E-CC7E-4A92-BB33-8E978850D564}.Debug|x86.ActiveCfg = Debug|Win32
+		{681BA77E-CC7E-4A92-BB33-8E978850D564}.Debug|x86.Build.0 = Debug|Win32
+		{681BA77E-CC7E-4A92-BB33-8E978850D564}.Release|x64.ActiveCfg = Release|x64
+		{681BA77E-CC7E-4A92-BB33-8E978850D564}.Release|x64.Build.0 = Release|x64
+		{681BA77E-CC7E-4A92-BB33-8E978850D564}.Release|x86.ActiveCfg = Release|Win32
+		{681BA77E-CC7E-4A92-BB33-8E978850D564}.Release|x86.Build.0 = Release|Win32
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

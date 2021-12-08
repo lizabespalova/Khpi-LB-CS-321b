@@ -6,22 +6,28 @@
 #include<iostream>
 #include<windows.h>
 #include<chrono>
-#define N 45
+#define N 10
 using namespace std;
 
 //гномья сортировка
-int main() {
-    auto start = std::chrono::high_resolution_clock::now();
-    SetConsoleCP(1251);
-    SetConsoleOutputCP(1251);
-    int A[N], i, tmp;
+void  GnomsortNaoborot(int A[N]) {
+   
+    for (int i = 0; i < N; ++i)
+        
+    for (int i = 0; i + 1 < N; ++i) {
+        if (A[i] < A[i + 1]) {
+            swap(A[i], A[i + 1]);
 
-    for (i = 0;i < N;i++) {
-        A[i] = rand() % 10;
-        cout << A[i] << " ";
+            if (i != 0)
+                i -= 2;
+        }
     }
-    cout << endl;
-    i = 0;
+
+}
+void Gnomsort(int A[N]) {
+    int i = 0;
+    int tmp = 0;
+    int mas[N];
     while (i < N) {
         if (i == 0 || A[i - 1] <= A[i])
             i++;
@@ -30,20 +36,45 @@ int main() {
             A[i] = A[i - 1];
             A[i - 1] = tmp;
             i--;
+           
         }
-       /* cout<<"Описание действия:"<<endl;
-
-        for (int i = 0;i < N;i++)
-            cout << A[i] << " ";
-        cout << endl;*/
     }
-    cout << "Конечный результат:" << endl;
-    for (i = 0;i < N;i++)
-        cout << A[i] << " ";
+}
+    int main()
+{
+    SetConsoleCP(1251);
+    SetConsoleOutputCP(1251);
+    int A[N], tmp;
+    int i = 0;
+    cout << "Изначальный массив:" << endl;
+    for (i = 0;i < N;i++) {
+        A[i] = rand() % 100+1;
+        cout << A[i]<< " ";
+    }
     cout << endl;
+    auto start = std::chrono::high_resolution_clock::now();
+    Gnomsort(A);
     auto end = std::chrono::high_resolution_clock::now();
-    chrono::duration<float>duration = end - start;
-    cout << "Продолжительность выполнения программы:" << duration.count() << endl;
+    chrono::duration<double>duration = end - start;
+    printf("Продолжительность выполнения программы: %.10lf\n", duration.count());
+    cout << "Конечный результат:" << endl;
+    for (i = 0; i < N; i++) {
+        cout << A[i]<< " ";
+    }
+    cout << endl;
+  
+   auto nachalo = std::chrono::high_resolution_clock::now();
+   GnomsortNaoborot(A);
+   auto conec = std::chrono::high_resolution_clock::now();
+   chrono::duration<double>durations = conec -nachalo;
+   printf("Продолжительность выполнения программы: %.10lf\n", durations.count());
+   cout << "Массив по убыванию:" << endl;
+       for (i = 0; i < N; i++) {
+           cout << A[i] << " ";
+       }
+   cout << endl;
+
+ 
     return 0;
 }
 
@@ -57,3 +88,4 @@ int main() {
 //   4. В окне "Список ошибок" можно просматривать ошибки.
 //   5. Последовательно выберите пункты меню "Проект" > "Добавить новый элемент", чтобы создать файлы кода, или "Проект" > "Добавить существующий элемент", чтобы добавить в проект существующие файлы кода.
 //   6. Чтобы снова открыть этот проект позже, выберите пункты меню "Файл" > "Открыть" > "Проект" и выберите SLN-файл.
+  
