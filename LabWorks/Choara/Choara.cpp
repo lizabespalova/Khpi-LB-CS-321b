@@ -3,7 +3,7 @@
 #include <windows.h>
 #include <iostream>
 #include<chrono>
-#define M 10 // 
+#define M 45 // 
 #define N 100
 using namespace std;
 

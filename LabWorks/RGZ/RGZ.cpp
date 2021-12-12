@@ -6,7 +6,7 @@
 #include<iostream>
 #include<windows.h>
 #include<chrono>
-#define N 10
+#define N 45
 #define M 100
 using namespace std;
 
