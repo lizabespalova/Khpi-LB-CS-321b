@@ -34,15 +34,22 @@ int main()
     SetConsoleOutputCP(1251);
     int A[N], tmp;
     int i = 0;
+    int mas[N];
+    int arr[N];
     cout << "Рандомный массив:" << endl;
     for (i = 0;i < N;i++) {
         A[i] = rand() % 100 + 1;
         cout << A[i] << " ";
+        mas[i] = A[i];
     }
     cout << endl;
     double sum = 0;
     double srznach = 0;
     for (int time = 0;time < M;time++) {
+        for ( i = 0; i < N; i++)
+        {
+            A[i] = mas[i];
+        }
         auto start = std::chrono::high_resolution_clock::now();
         Gnomsort(A);
         auto end = std::chrono::high_resolution_clock::now();
@@ -59,16 +66,19 @@ int main()
     cout << endl;
     cout << "*************************************************************";
     cout << endl;
-    for (int i = 0; i < N; ++i)
+    for (int i = 0; i < N; i++) {
 
-        for (int i = 0; i + 1 < N; ++i) {
+        for (int i = 0; i + 1 < N; i++) {
             if (A[i] < A[i + 1]) {
                 swap(A[i], A[i + 1]);
 
                 if (i != 0)
                     i -= 2;
             }
+           
         }
+        arr[i] = A[i];
+    }
     sum = 0;
     srznach = 0;
     cout << "Упорядоченный массив наоборот:" << endl;
@@ -77,6 +87,10 @@ int main()
     }
     cout << endl;
     for (int time = 0;time < M;time++) {
+        for (i = 0; i < N; i++)
+        {
+            A[i] = arr[i];
+        }
         auto nachalo = std::chrono::high_resolution_clock::now();
         Gnomsort(A);
         auto conec = std::chrono::high_resolution_clock::now();

@@ -3,7 +3,7 @@
 #include <windows.h>
 #include <iostream>
 #include<chrono>
-#define M 45 // 
+#define M 5 // 
 #define N 100
 using namespace std;
 
@@ -75,16 +75,23 @@ int main()
     SetConsoleCP(1251);
     SetConsoleOutputCP(1251);
     int mass[M];
+    int mas[N];
+    int arr[N];
     cout << "Рандомный массив:";
     cout << endl;
     for (int i = 0; i < M; i++)
     {
         mass[i] = rand() % 100 + 1;
+        mas[i] = mass[i];
         cout << mass[i] << " ";
     }
     double sum = 0;
     double srznach = 0;
     for (int time = 0;time < N;time++) {
+        for (int i = 0; i < M; i++)
+        {
+            mass[i] = mas[i];
+        }
         auto start = std::chrono::high_resolution_clock::now();
         qSortI(mass, M);
         auto end = std::chrono::high_resolution_clock::now();
@@ -162,10 +169,13 @@ int main()
 
                 }
                 lb = i;
-
             }
-        } while (lb > ub);  // пока в меньшей части более 1 элемента
+        } while (lb > ub);    // пока в меньшей части более 1 элемента
     } while (tekpoz != 0);    // пока есть элементы в массиве
+    for (int i = 0; i < M; i++)
+    {
+        arr[i] = mass[i];
+    }
     cout << "Упорядоченный массив наоборот:" << endl;
     for (i = 0; i < M; i++) {
         cout << mass[i] << " ";
@@ -173,6 +183,10 @@ int main()
     sum = 0;
     srznach = 0;
     for (int time = 0;time < N;time++) {
+        for (int i = 0; i < M; i++)
+        {
+            mass[i] = arr[i];
+        }
         auto nachalo = std::chrono::high_resolution_clock::now();
         qSortI(mass, M);
         auto conec = std::chrono::high_resolution_clock::now();
