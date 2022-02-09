@@ -29,8 +29,8 @@ int main()
 	int* arr = new int[count];
 	for (int i = 0; i < count; i++)
 	{
-		arr[i] = eshechislo % 10;
-		eshechislo /= 10;
+		/*arr[i] = eshechislo % 10;
+		eshechislo /= 10;*/
 
 		sum += arr[i];
 

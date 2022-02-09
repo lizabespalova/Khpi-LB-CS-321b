@@ -3,9 +3,10 @@
 #include <windows.h>
 #include <iostream>
 #include<chrono>
-#define M 5 // 
+#define M 10 // 
 #define N 100
 using namespace std;
+//сортировка Хоара
 
     void qSortI(int a[], int size) {
     int i, j; // указатели, участвующие в разделении
@@ -99,6 +100,13 @@ int main()
         printf("Продолжительность выполнения программы: %.10lf", duration.count());
         sum += duration.count();
     }
+    cout << endl;
+    cout << "Рандомный массив:";
+    cout << endl;
+    for (int i = 0; i < M; i++)
+    {
+        cout << mas[i] << " ";
+    }
     srznach = sum / N;
     cout << endl;
     printf("Среднее время: %.10lf\n", srznach);
@@ -191,8 +199,14 @@ int main()
         qSortI(mass, M);
         auto conec = std::chrono::high_resolution_clock::now();
         chrono::duration<double>durations = conec - nachalo;
-        printf("Продолжительность выполнения программы: %.10lf", durations.count());
+       /* printf("Продолжительность выполнения программы: %.10lf", durations.count());*/
         sum += durations.count();
+    }
+    cout << "*************************************************************";
+    cout << endl;
+    cout << "Упорядоченный массив наоборот:" << endl;
+    for (i = 0; i < M; i++) {
+        cout << arr[i] << " ";
     }
     srznach = sum / N;
     cout << endl;
@@ -219,6 +233,7 @@ int main()
         chrono::duration<double>durationses = finish - debuit;
         printf("Продолжительность выполнения программы: %.10lf", durationses.count());
         sum += durationses.count();
+
     }
     srznach = sum / N;
     cout << endl;

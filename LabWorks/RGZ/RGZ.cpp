@@ -54,7 +54,7 @@ int main()
         Gnomsort(A);
         auto end = std::chrono::high_resolution_clock::now();
         chrono::duration<double>duration = end - start;
-        printf("Продолжительность выполнения программы: %.10lf\n", duration.count());
+       /* printf("Продолжительность выполнения программы: %.10lf\n", duration.count());*/
         sum += duration.count();
     }
     srznach = sum / M;
@@ -95,7 +95,7 @@ int main()
         Gnomsort(A);
         auto conec = std::chrono::high_resolution_clock::now();
         chrono::duration<double>durations = conec - nachalo;
-        printf("Продолжительность выполнения программы: %.10lf\n", durations.count());
+      /*  printf("Продолжительность выполнения программы: %.10lf\n", durations.count());*/
         sum += durations.count();
         }
         srznach = sum / M;
@@ -122,7 +122,7 @@ int main()
         Gnomsort(A);
         auto finish = std::chrono::high_resolution_clock::now();
         chrono::duration<double>durationses = finish - debuit;
-        printf("Продолжительность выполнения программы: %.10lf\n", durationses.count());
+      /*  printf("Продолжительность выполнения программы: %.10lf\n", durationses.count());*/
         sum += durationses.count();
     }
     srznach = sum / M;

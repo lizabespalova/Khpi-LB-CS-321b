@@ -2,11 +2,42 @@
 //
 
 #include <iostream>
+using namespace std;
 
-int main()
-{
-    std::cout << "Hello World!\n";
-}
+
+	int main()
+	{
+		int i, j, n, m;
+		double a[100][100];
+		//заполнение массива случайными числами
+		cout << "Enter lines (1<n<=100) n="; cin >> n;
+		cout << "Enter columns (1<m<=100) m="; cin >> m;
+		for (i = 0; i < n; i++)
+		{
+			for (j = 0; j < m; j++)
+			{
+				a[i][j] = rand() % 9;
+			}
+		}
+		//вывод массива на экран 
+		for (i = 0; i < n; i++)
+		{
+			for (j = 0; j < m; j++)
+				cout << a[i][j] << " ";
+			cout << endl;
+		}
+		cout << endl;
+		//вывод обновлённого массива на экран
+		for (i = 0; i < n; i++)
+		{
+			for (j = 0; j < m; j++)
+				cout << a[n - 1 - i][j] << " ";
+			cout << endl;
+		}
+		system("pause");
+		return 0;
+	}
+
 
 // Запуск программы: CTRL+F5 или меню "Отладка" > "Запуск без отладки"
 // Отладка программы: F5 или меню "Отладка" > "Запустить отладку"
