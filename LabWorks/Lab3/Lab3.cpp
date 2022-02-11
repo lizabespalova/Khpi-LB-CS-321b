@@ -2,33 +2,130 @@
 //
 
 #include <iostream>
-#include <math.h>
 #include <windows.h>
-#pragma warning(disable : 4996)
+#include<stdio.h>
+#include <string.h>
+#define _CRT_SECURE_NO_WARNINGS
+#define M 3
+using namespace std;
+struct data {
+	char surname[15];
+	char initials;
+	short birthdate;
+	float salary;
+	int mas[10];
+};
+void input(struct data mm[]) {
+	int n = M; //количество элементов в массиве
+	int i, j;// текущие индексы в массиве
+	int m;//индекс минимального элемента
+	float sqx;//рабочая переменная
+	for (n = 0; n < M; n++)
+	{
+		printf("%d.Введите: фамилию, инициалы, год рождения, оклад>",
+			n + 1);
+		scanf_s("%s", mm[n].surname, sizeof(mm[n].surname));
+		if (!strcmp(mm[n].surname, "***")) break;
+		scanf_s("%s", &mm[n].initials, sizeof(mm[n].surname));
+		scanf_s("%hd", &mm[n].birthdate);
+		scanf_s("%f", &mm[n].salary);
+	}
+}
+void sort(struct data mm[]) {
+	struct data inf;
+	int n = M;
+	int m;
+	for (int i = 0; i < n - 1; i++) {
+		m = i; /* минимальный элемент - первый */
+		for (int j = i + 1; j < n; j++)
 
+			if (strcmp(mm[m].surname, mm[j].surname) > 0) m = j;
+		if (m > i) {
+
+			inf = mm[i];
+			mm[i] = mm[m];
+			mm[m] = inf;
+		}
+	}
+	printf("-----------------------------------------------\n");
+	printf("|                  Отдел кадров               |\n");
+	printf("|---------------------------------------------|\n");
+	printf("|  Фамилия |  Инициалы | Год рождения | Оклад |\n");
+	printf("|---------------------------------------------|\n");
+	for (int i = 0; i < n; i++)
+		printf("|%-10s | %c | %5hd | %-11.2f |\n",
+			mm[i].surname, mm[i].initials, mm[i].birthdate, mm[i].salary);
+	printf("|---------------------------------------------|\n");
+
+}
+/*void random(struct data mm[]) {
+	for (int n = 0; n < 10; n++) {
+		printf("%d. Введите фамилию>", n + 1);
+		scanf_s("s", mm[n].surname, sizeof(mm[n].surname));
+		if (!strcmp(mm[n].surname, "***"))break;
+		scanf_s(" % c", &mm[n].initials, sizeof(mm[n].surname));
+		scanf_s(" % sh", &mm[n].birthdate);
+		scanf_s(" % f", &mm[n].salary);
+	}*/
+
+void print(struct data mm[]) {
+
+	int n = M; //количество элементов в массиве
+	int i, j;// текущие индексы в массиве
+	int m;//индекс минимального элемента
+	float sqx;//рабочая переменная
+	printf("-----------------------------------------------\n");
+	printf("|                  Отдел кадров               |\n");
+	printf("|---------------------------------------------|\n");
+	printf("|  Фамилия |  Инициалы | Год рождения | Оклад |\n");
+	printf("|---------------------------------------------|\n");
+	for (i = 0; i < n; i++)
+		printf("| %12s | %2c | %5hd | %-15.2f |\n",
+			mm[i].surname, mm[i].initials, mm[i].birthdate, mm[i].salary);
+	printf("|---------------------------------------------|\n");
+
+
+}
 int main(void) {
-    SetConsoleCP(1251);
-    SetConsoleOutputCP(1251);
+	setlocale(LC_ALL, "rus");
+	system("chcp 1251");
+	struct data inf;
+	struct data spis[10];
+	int choice;
+	cout << "Выберите, как заполним таблицу:" << endl;
+	cout << "(1)Ввод с экрана" << endl;
+	cout << "(2)Случайным образом" << endl;
+	cin >> choice;
+	system("cls");
+	while (choice > 2) {
+		cout << "Такого действия нет, попробуйте еще" << endl;
+		cin >> choice;
+	}
+	if (choice == 1)
+	{
+		input(spis);
+	}
+	/*else if (choice == 2)
+	{
+		random(spis);
+	}*/
+	cout << "Выберите операцию которую будем проводить:" << endl;
+	cout << "(1)Сортировка" << endl;
+	cout << "(2)Печать" << endl;
+	int answer;
+	cin >> answer;
+	if (answer == 1)
+	{
+		sort(spis);
+	}
+	else if (answer == 2)
+	{
+		print(spis);
+	}
 
-    double x, y;
-    double a = 2, b = 3, c = 4;
-    double t1, t2;
-    double ax;
 
-    printf("Введите x, y > \n");
-    scanf("%lf %lf", &x, &y);
-    ax = a * x;
-    /* if ( (ax + b) != 0 && a != 0 && tan(ax/2) >= 0 && cos(x * 3.14 / 180) != 0) */
-    t1 = (c + y * log((x * y + a) / (ax + b)) * (ax + b)) / (pow(c, 2) * (ax + b));
-    t2 = (sin(ax * 3.14 / 180) / (2 * a * pow(cos(x * 3.14 / 180), 2)) + 1 / (2 * a) * log(tan((a * x) / 2) * 3.14 / 180));
-    printf("t1 = %lg\n", t1);
-    printf("t2 = %lg\n", t2);
-    /*}
-    else {
-        printf("Введите нормальные значения");
-        }*/
 
-    return 0;
+
 }
 
 
