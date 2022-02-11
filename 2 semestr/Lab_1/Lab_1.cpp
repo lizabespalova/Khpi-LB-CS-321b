@@ -112,38 +112,39 @@ int main(void) {
 	system("chcp 1251");
 	struct data spis[10];
 	int choice;
-	cout << "Выберите, как заполним таблицу(Таблица рассчитана на 3 человек):" << endl;
-	cout << "(1)Ввод с экрана" << endl;
-	cout << "(2)Случайным образом" << endl;
-	cin >> choice;
-	system("cls");
-	while (choice > 2) {
-		cout << "Такого действия нет, попробуйте еще" << endl;
+	while (true) {
+		cout << "Выберите, как заполним таблицу(Таблица рассчитана на 3 человек):" << endl;
+		cout << "(1)Ввод с экрана" << endl;
+		cout << "(2)Случайным образом" << endl;
 		cin >> choice;
-	}
-	if (choice == 1)
-	{
-		input(spis);
-	}
-	else if (choice == 2)
-	{
-		random(spis);
-	}
-	cout << "Выберите операцию которую будем проводить:" << endl;
-	cout << "(1)Сортировка" << endl;
-	cout << "(2)Печать" << endl;
-	int answer;
-	cin >> answer;
-	if (answer == 1)
-	{
-		sort(spis);
-	}
-	else if (answer == 2)
-	{
-		print(spis);
-	}
+		system("cls");
+		while (choice > 2) {
+			cout << "Такого действия нет, попробуйте еще" << endl;
+			cin >> choice;
+		}
+		if (choice == 1)
+		{
+			input(spis);
+		}
+		else if (choice == 2)
+		{
+			random(spis);
+		}
+		cout << "Выберите операцию которую будем проводить:" << endl;
+		cout << "(1)Сортировка" << endl;
+		cout << "(2)Печать" << endl;
+		int answer;
+		cin >> answer;
+		if (answer == 1)
+		{
+			sort(spis);
+		}
+		else if (answer == 2)
+		{
+			print(spis);
+		}
 
-
+	}
 
 
 }
