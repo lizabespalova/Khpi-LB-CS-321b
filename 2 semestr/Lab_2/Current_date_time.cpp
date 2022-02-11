@@ -4,9 +4,10 @@
 struct Array {
 	int ar;
 };
-Array ar[M];
+
 
 void Screen() {
+	Array ar[M];
 #ifdef DEBUG
 	cout << "Текущая дата:" << __DATE__ << endl;
 	cout << "Текущее время:" << __TIME__ << endl;
@@ -32,12 +33,8 @@ void Screen() {
 
 
 void Random() {
+	Array ar[M];
 #ifdef DEBUG
-	/*char currDate[30];
-	time_t t = time(NULL);
-	struct tm tm = *localtime(&t);
-	sprintf(currDate, "%d-%d-%d %d:%d:%d", tm.tm_year + 1900, tm.tm_mon + 1, tm.tm_mday, tm.tm_hour, tm.tm_min, tm.tm_sec);
-	cout << "Ваше время" << "\t" << currDate << endl;*/
 	cout << "Текущая дата:" << __DATE__ << endl;
 	cout << "Текущее время:" << __TIME__ << endl;
 #endif
